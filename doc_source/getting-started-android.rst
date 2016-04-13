@@ -8,11 +8,12 @@
    either express or implied. See the License for the specific language governing permissions and
    limitations under the License.
 
-===================================================
+###################################################
 Getting Started with the AWS Mobile SDK for Android
-===================================================
+###################################################
 
-The AWS SDK for Android provides the libraries, samples and, documentation needed to call AWS services from Android apps. This guide will walk you through the following:
+The AWS SDK for Android provides the libraries, samples and, documentation needed to call AWS
+services from Android apps. This guide will walk you through the following:
 
 .. toctree::
    :maxdepth: 1

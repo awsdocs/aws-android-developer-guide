@@ -10,27 +10,26 @@
 
 .. highlight:: java
 
-######################################################################
-Process Streaming Data with Amazon Kinesis and Amazon Kinesis Firehose
-######################################################################
+##########################################
+Process Streaming Data with |AK| and |AKF|
+##########################################
 
-What is Amazon Kinesis?
-=======================
+What is |AK|?
+=============
 
-`Amazon Kinesis <http://aws.amazon.com/kinesis/>`_ is a fully managed service for real-time
-processing of streaming data at massive scale. Amazon Kinesis can collect and process hundreds of
-terabytes of data per hour from hundreds of thousands of sources, so you can write applications that
-process information in real-time. With Amazon Kinesis applications, you can build real-time
-dashboards, capture exceptions and generate alerts, drive recommendations, and make other real-time
-business or operational decisions. You can also easily send data to other services such as Amazon
-Simple Storage Service, Amazon DynamoDB, and Amazon Redshift.
+|AKlong|_ is a fully managed service for real-time processing of streaming data at massive scale.
+|AK| can collect and process hundreds of terabytes of data per hour from hundreds of thousands of
+sources, so you can write applications that process information in real-time. With |AK|
+applications, you can build real-time dashboards, capture exceptions and generate alerts, drive
+recommendations, and make other real-time business or operational decisions. You can also easily
+send data to other services such as |S3long|, |DDBlong|, and |RSlong|.
 
-The SDK for Android provides simple, high-level clients designed to help you interface with Amazon
-Kinesis. The Kinesis clients let you store streaming data on disk and then send them all at once.
-This is useful because many mobile applications that use Kinesis will create multiple data requests
-per second. Sending one data request for each action could adversely impact battery life. Moreover,
-the requests could be lost if the device goes offline. Thus, using the high-level Kinesis client for
-batching can preserve both battery life and data.
+The |sdk-android| provides simple, high-level clients designed to help you interface with |AK|. The
+Kinesis clients let you store streaming data on disk and then send them all at once.  This is useful
+because many mobile applications that use Kinesis will create multiple data requests per second.
+Sending one data request for each action could adversely impact battery life. Moreover, the requests
+could be lost if the device goes offline. Thus, using the high-level Kinesis client for batching can
+preserve both battery life and data.
 
 For information about Kinesis Region availability, see  `AWS Service Region Availability
 <http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>`_.
@@ -38,19 +37,19 @@ For information about Kinesis Region availability, see  `AWS Service Region Avai
 To get started using the Amazon Kinesis mobile client, you'll need to integrate the SDK for Android
 into your app, set the appropriate permissions, and import the necessary libraries.
 
-What is Amazon Kinesis Firehose?
-=======================
 
-`Amazon Kinesis Firehose <http://aws.amazon.com/kinesis/firehose/>`_ is a fully managed service for
-delivering real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon
-S3) and Amazon Redshift. With Firehose, you do not need to write any applications or manage any
-resources. You configure your data producers to send data to Firehose and it automatically delivers
-the data to the destination that you specified.
+What is |AKF|?
+==============
 
-:guilabel:`KinesisFirehoseRecorder` is the high level client for Amazon Kinesis Firehose. Its usage
-is very similar to that of :guilabel:`KinesisRecorder`.
+|AKFlong|_ is a fully managed service for delivering real-time streaming data to destinations such
+as |S3| and |RS|. With |AKF|, you do not need to write any applications or manage any resources. You
+configure your data producers to send data to Firehose and it automatically delivers the data to the
+destination that you specified.
 
-For more information about Amazon Kinesis Firehose, see `Amazon Kinesis Firehose
+:guilabel:`KinesisFirehoseRecorder` is the high level client for |AKF|. Its usage is very similar to
+that of :guilabel:`KinesisRecorder`.
+
+For more information about |AKF|, see `Amazon Kinesis Firehose
 <http://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html>`_.
 
 You can also learn more about how the Kinesis services work together on the following page: `Amazon
@@ -62,9 +61,9 @@ Getting Started
 Create an Identity Pool
 -----------------------
 
-To use AWS services in your mobile application, you must obtain AWS Credentials using Amazon Cognito
-Identity as your credential provider. Using a credentials provider allows you to access AWS services
-without having to embed your private credentials in your application. This also allows you to set
+To use AWS services in your mobile application, you must obtain AWS Credentials using |COGID| as
+your credential provider. Using a credentials provider allows you to access AWS services without
+having to embed your private credentials in your application. This also allows you to set
 permissions to control which AWS services your users have access to.
 
 The identities of your application's users are stored and managed by an identity pool, which is a
@@ -75,25 +74,26 @@ application. For more information on identity pools, see the `Cognito Developer 
 
 To create an identity pool for your application:
 
-#. Log in to the `Cognito Console <https://console.aws.amazon.com/cognito/home>`_ and click
-   :guilabel:`Create new identity pool`.
+#. Log in to the :console:`Cognito Console <cognito>` and click :guilabel:`Create new identity
+   pool`.
 
 #. Enter a name for your Identity Pool and check the checkbox to enable access to unauthenticated
    identities. Click :guilabel:`Create Pool` to create your identity pool.
 
 #. Click :guilabel:`Allow` to create the roles associated with your identity pool.
 
-The next page displays code that creates a credentials provider so you can easily integrate Cognito
-Identity in your Android application.
+The next page displays code that creates a credentials provider so you can easily integrate |COGID|
+in your Android application.
 
 For more information on Cognito Identity, see :doc:`cognito-auth`.
 
+
 Set IAM Permissions (Amazon Kinesis)
--------------------
+------------------------------------
 
 To use Amazon Kinesis in an application, you must set the correct permissions. The following IAM
-policy allows the user to submit records to a Kinesis stream identified by `ARN
-<http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`_:
+policy allows the user to submit records to a Kinesis stream identified by :aws-gr:`ARN
+<aws-arns-and-namespaces>`:
 
 .. code-block:: java
 

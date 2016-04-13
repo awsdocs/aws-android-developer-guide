@@ -10,26 +10,37 @@
 
 .. highlight:: java
 
-Mobile Backend Using AWS Lambda
-===============================
 
-AWS Lambda is a compute service that runs your code in response to events and automatically manages the compute resources for you, making it easy to build applications that respond quickly to new information. The AWS Mobile SDK for Android enables you to call Lambda functions from your Android  mobile apps.
+###############################
+Mobile Backend Using AWS Lambda
+###############################
+
+AWS Lambda is a compute service that runs your code in response to events and automatically manages
+the compute resources for you, making it easy to build applications that respond quickly to new
+information. The AWS Mobile SDK for Android enables you to call Lambda functions from your Android
+mobile apps.
 
 The tutorial below explains how to integrate AWS Lambda with your app.
 
+
 Project Setup
--------------
+=============
 
 Prerequisites
-~~~~~~~~~~~~~
+-------------
 
-You must complete all of the instructions on the `Set Up the SDK for Android <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/setup.html>`_ page before beginning this tutorial.
+You must complete all of the instructions on the `Set Up the SDK for Android
+<http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/setup.html>`_ page before beginning
+this tutorial.
+
 
 Create a Lambda Function in the AWS Console
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
-For this tutorial, let's use a simple "echo" function that returns the input. Follow the steps described at `Amazon Lambda Getting Started <http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html>`_, replacing the function code with the code below:
-::
+For this tutorial, let's use a simple "echo" function that returns the input. Follow the steps
+described at `Amazon Lambda Getting Started
+<http://docs.aws.amazon.com/lambda/latest/dg/getting-started.html>`_, replacing the function code
+with the code below::
 
  exports.
  handler = function(event, context) {
@@ -37,11 +48,15 @@ For this tutorial, let's use a simple "echo" function that returns the input. Fo
       context.succeed("Hello "+ event.firstName + "using " + context.clientContext.deviceManufacturer);
    }
 
-Set IAM Permissions
-~~~~~~~~~~~~~~~~~~~
-The default IAM role policy grants your users access to Amazon Mobile Analytics and Amazon Cognito Sync. To use AWS Lambda in your application, you must configure the IAM role policy so that it allows your application and your users access to AWS Lambda. The following IAM policy allows the user to perform the actions shown in this tutorial on a given AWS Lambda function identified by its Amazon Resource Name (ARN). The ARN is found in the Lambda Console by clicking the function name:
 
-::
+Set IAM Permissions
+-------------------
+
+The default IAM role policy grants your users access to Amazon Mobile Analytics and Amazon Cognito
+Sync. To use AWS Lambda in your application, you must configure the IAM role policy so that it
+allows your application and your users access to AWS Lambda. The following IAM policy allows the
+user to perform the actions shown in this tutorial on a given AWS Lambda function identified by its
+Amazon Resource Name (ARN). The ARN is found in the Lambda Console by clicking the function name::
 
    {
       "Statement": [{
@@ -57,41 +72,58 @@ The default IAM role policy grants your users access to Amazon Mobile Analytics 
 
 To set IAM Permissions for AWS Lambda:
 
-#. Navigate to the `Identity and Access Management Console <https://console.aws.amazon.com/iam/home?region=us-east-1#>`_ and click :guilabel:`Roles` in the left-hand pane.
-#. Type your identity pool name into the search box. Two roles will be listed: one for unauthenticated users and one for authenticated users.
-#. Click the role for unauthenticated users (it will have :code:`unauth` appended to your Identity Pool name).
-#. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Policy Generator`, and then click the :guilabel:`Select` button.
-#. Enter a name for your policy and paste in the policy document shown above, replacing the resource values with the ARN for your function. You can view the ARN for your function in the AWS Lambda Console by clicking the function name. Your ARN will look like this: :code:`arn:aws:lambda:us-west-2:account-id:function:invokeFunction`.
-#. Click the :guilabel:`Add Statement` button, and then click the :guilabel:`Next Step` button. The wizard will show you the configuration that you generated.
+#. Navigate to the :console:`IAM Console <iam/home?region=us-east-1#>` and click :guilabel:`Roles`
+   in the left-hand pane.
+
+#. Type your identity pool name into the search box. Two roles will be listed: one for
+   unauthenticated users and one for authenticated users.
+
+#. Click the role for unauthenticated users (it will have :code:`unauth` appended to your Identity
+   Pool name).
+
+#. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Policy Generator`, and then
+   click the :guilabel:`Select` button.
+
+#. Enter a name for your policy and paste in the policy document shown above, replacing the resource
+   values with the ARN for your function. You can view the ARN for your function in the AWS Lambda
+   Console by clicking the function name. Your ARN will look like this:
+   :code:`arn:aws:lambda:us-west-2:account-id:function:invokeFunction`.
+
+#. Click the :guilabel:`Add Statement` button, and then click the :guilabel:`Next Step` button. The
+   wizard will show you the configuration that you generated.
+
 #. Click the :guilabel:`Apply Policy` button.
 
-To learn more about IAM policies, see `IAM documentation <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
+To learn more about IAM policies, see `IAM documentation
+<http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
+
 
 Set Permissions in Your Android Manifest
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
-In your :file:`AndroidManifest.xml`, add the following permission:
-::
+In your :file:`AndroidManifest.xml`, add the following permission
+
+.. code-block:: xml
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-Initialize LambdaInvokerFactory
--------------------------------
 
-Pass your initialized Amazon Cognito credentials provider to the :code:`LambdaInvokerFactory` constructor:
-::
+Initialize LambdaInvokerFactory
+===============================
+
+Pass your initialized Amazon Cognito credentials provider to the :code:`LambdaInvokerFactory` constructor::
 
   LambdaInvokerFactory factory = new LambdaInvokerFactory(
     myActivity.getApplicationContext(),
     REGION,
     credentialsProvider);
 
+
 Declare Data Types
-------------------
+==================
 
-Declare the Java classes to hold the data you pass to the Lambda function. The following class defines a NameInfo class that contains a person's first and last name:
-
-::
+Declare the Java classes to hold the data you pass to the Lambda function. The following class
+defines a NameInfo class that contains a person's first and last name::
 
    package com.amazonaws.demo.lambdainvoker;
 
@@ -126,23 +158,28 @@ Declare the Java classes to hold the data you pass to the Lambda function. The f
        }
    }
 
+
 Create a Lambda proxy
----------------------
+=====================
 
-Declare an interface containing one method for each Lambda function call. Each method in the interface must be decorated with the "@LambdaFunction" annotation. The LambdaFunction attribute can take 3 optional parameters:
+Declare an interface containing one method for each Lambda function call. Each method in the
+interface must be decorated with the "@LambdaFunction" annotation. The LambdaFunction attribute can
+take 3 optional parameters:
 
-- :code:`functionName` allows you to specify the name of the Lambda function to call when the method is executed, by default the name of the method is used.
+- :code:`functionName` allows you to specify the name of the Lambda function to call when the method
+  is executed, by default the name of the method is used.
 
-- :code:`logType` is valid only when invocationType is set to "Event". If set, AWS Lambda will return the last 4KB of log data produced by your Lambda Function in the x-amz-log-results header.
+- :code:`logType` is valid only when invocationType is set to "Event". If set, AWS Lambda will
+  return the last 4KB of log data produced by your Lambda Function in the x-amz-log-results header.
 
-- :code:`invocationType` specifies how the Lambda function will be invoked. Can be one of the following values:
+- :code:`invocationType` specifies how the Lambda function will be invoked. Can be one of the
+  following values:
 
   - Event: calls the Lambda Function asynchronously
   - RequestResponse: calls the Lambda Function synchronously
   - DryRun: allows you to validate access to a Lambda Function without executing it
 
-The following code shows how to create a Lambda proxy:
-::
+The following code shows how to create a Lambda proxy::
 
    package com.amazonaws.demo.lambdainvoker;
    import com.amazonaws.mobileconnectors.lambdainvoker.LambdaFunction;
@@ -165,14 +202,15 @@ The following code shows how to create a Lambda proxy:
       @LambdaFunction(functionName = "echo")
       void noEcho(NameInfo nameInfo);
    }
- 
+
 Invoke the Lambda Function
---------------------------
+==========================
 
-.. note::
-   Do not invoke the Lambda function from the main thread as it results in a network call.
+.. note:: Do not invoke the Lambda function from the main thread as it results in a network call.
 
-The following code shows how to initialize the Cognito Caching Credentials Provider and invoke a Lambda function. The value for :code:`IDENTITY_POOL_ID` will be specific to your account. Ensure the region is the same as the Lambda function you are trying to invoke.
+The following code shows how to initialize the Cognito Caching Credentials Provider and invoke a
+Lambda function. The value for :code:`IDENTITY_POOL_ID` will be specific to your account. Ensure the
+region is the same as the Lambda function you are trying to invoke.
 
 ::
 
@@ -219,9 +257,10 @@ The following code shows how to initialize the Cognito Caching Credentials Provi
             // Do a toast
             Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
         }
-   }.execute(nameInfo);
+    }.execute(nameInfo);
 
-Now whenever the Lambda function is invoked, you should see an application toast with the text "Hello John using <device>".
+Now whenever the Lambda function is invoked, you should see an application toast with the text
+"Hello John using <device>".
 
 For more information on accessing AWS Lambda, see :doc:`lambda`.
 

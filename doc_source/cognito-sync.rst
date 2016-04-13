@@ -10,14 +10,17 @@
 
 .. highlight:: java
 
+###################
 Amazon Cognito Sync
 ###################
 
 What is Amazon Cognito Sync?
 ============================
 
-Amazon Cognito Sync is an AWS service and client library that enables cross-device
-syncing of application-related user data. You can use the Amazon Cognito Sync API to synchronize
-user profile data across devices and across login providers |mdash| Amazon, Facebook, Twitter/Digits, Google, and your own custom identity provider.
+|COG| Sync is an AWS service and client library that enables cross-device syncing of
+application-related user data. You can use the |COG| Sync API to synchronize user profile data
+across devices and across login providers |mdash| Amazon, Facebook, Twitter/Digits, Google, and your
+own custom identity provider.
 
-For instructions on how to integrate Amazon Cognito Sync in your application, see  `Amazon Cognito Sync Developer Guide <http://docs.aws.amazon.com/cognito/devguide/sync/>`_.
+For instructions on how to integrate Amazon Cognito Sync in your application, see  `Amazon Cognito
+Sync Developer Guide <http://docs.aws.amazon.com/cognito/devguide/sync/>`_.
