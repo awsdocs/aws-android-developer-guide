@@ -25,7 +25,7 @@ infrastructure. For more information, see `AWS Lambda
 <http://docs.aws.amazon.com/lambda/latest/dg/welcome.html>`_.
 
 The Mobile SDK for Android enables you to call Lambda functions from your Android mobile apps, using
-the :code:`lambdainvoker` library. When invoked from the Mobile SDK, Lambda functions receive data
+the :file:`aws-android-sdk-lambda` library. When invoked from the Mobile SDK, Lambda functions receive data
 about the device, app, and end user identity through a client and identity context object, making it
 easy to create rich, and personalized app experiences.
 
