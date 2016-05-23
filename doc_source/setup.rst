@@ -45,17 +45,16 @@ There are three ways to get the |sdk-android|.
 Option 1: Using Gradle with Android Studio
 ------------------------------------------
 
-If you are using Android Studio, add the :file:`aws-android-sdk-core` and
-:file:`aws-android-sdk-cognito` dependencies to your :file:`app/build.gradle` file, along with the
-dependencies for the individual services that your project will use, as shown below.
+If you are using Android Studio, add the :file:`aws-android-sdk-core` dependency to your
+:file:`app/build.gradle` file, along with the dependencies for the individual services
+that your project will use, as shown below.
 
 .. code-block:: groovy
 
     dependencies {
-        compile 'com.amazonaws:aws-android-sdk-core:2.+'
-        compile 'com.amazonaws:aws-android-sdk-cognito:2.+'
-        compile 'com.amazonaws:aws-android-sdk-s3:2.+'
-        compile 'com.amazonaws:aws-android-sdk-ddb:2.+'
+        compile 'com.amazonaws:aws-android-sdk-core:2.2.+'
+        compile 'com.amazonaws:aws-android-sdk-s3:2.2.+'
+        compile 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
     }
 
 A full list of dependencies are listed below.
@@ -63,22 +62,27 @@ A full list of dependencies are listed below.
 ====================================== =======================================
 Dependency                             Build.gradle Value
 ====================================== =======================================
-AWS Mobile SDK core                    com.amazonaws:aws-android-sdk-core:2.+
-Auto Scaling                           com.amazonaws:aws-android-sdk-autoscaling:2.+
-Amazon Cloud Watch                     com.amazonaws:aws-android-sdk-cloudwatch:2.+
-Amazon Cognito Sync                    com.amazonaws:aws-android-sdk-cognito:2.+
-Amazon DynamoDB                        com.amazonaws:aws-android-sdk-ddb:2.+
-Amazon DynamoDB Object Mapper          com.amazonaws:aws-android-sdk-ddb-mapper:2.+
-Amazon EC2                             com.amazonaws:aws-android-sdk-ec2:2.+
-Elastic Load Balancing                 com.amazonaws:aws-android-sdk-elb:2.+
-Amazon Kinesis                         com.amazonaws:aws-android-sdk-kinesis:2.+
-Amazon Machine Learning                com.amazonaws:aws-android-sdk-machinelearning:2.+
-Amazon Mobile Analytics                com.amazonaws:aws-android-sdk-mobileanalytics:2.+
-Amazon S3                              com.amazonaws:aws-android-sdk-s3:2.+
-Amazon Simple DB                       com.amazonaws:aws-android-sdk-sdb:2.+
-Amazon SES                             com.amazonaws:aws-android-sdk-ses:2.+
-Amazon SNS                             com.amazonaws:aws-android-sdk-sns:2.+
-Amazon SQS                             com.amazonaws:aws-android-sdk-sqs:2.+
+AWS Mobile SDK core                    com.amazonaws:aws-android-sdk-core:2.2.+
+Amazon API Gateway                     com.amazonaws:aws-android-sdk-apigateway-core:2.2.+
+Auto Scaling                           com.amazonaws:aws-android-sdk-autoscaling:2.2.+
+Amazon Cloud Watch                     com.amazonaws:aws-android-sdk-cloudwatch:2.2.+
+Amazon Cognito Sync                    com.amazonaws:aws-android-sdk-cognito:2.2.+
+Amazon Cognito Identity Provider       com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.2.+
+Amazon DynamoDB                        com.amazonaws:aws-android-sdk-ddb:2.2.+
+Amazon DynamoDB Object Mapper          com.amazonaws:aws-android-sdk-ddb-mapper:2.2.+
+Amazon EC2                             com.amazonaws:aws-android-sdk-ec2:2.2.+
+Elastic Load Balancing                 com.amazonaws:aws-android-sdk-elb:2.2.+
+AWS IoT                                com.amazonaws:aws-android-sdk-iot:2.2.+
+Amazon Kinesis                         com.amazonaws:aws-android-sdk-kinesis:2.2.+
+AWS Key Management Service (KMS)       com.amazonaws:aws-android-sdk-kms:2.2.+
+AWS Lambda                             com.amazonaws:aws-android-sdk-lambda:2.2.+
+Amazon Machine Learning                com.amazonaws:aws-android-sdk-machinelearning:2.2.+
+Amazon Mobile Analytics                com.amazonaws:aws-android-sdk-mobileanalytics:2.2.+
+Amazon S3                              com.amazonaws:aws-android-sdk-s3:2.2.+
+Amazon Simple DB                       com.amazonaws:aws-android-sdk-sdb:2.2.+
+Amazon SES                             com.amazonaws:aws-android-sdk-ses:2.2.+
+Amazon SNS                             com.amazonaws:aws-android-sdk-sns:2.2.+
+Amazon SQS                             com.amazonaws:aws-android-sdk-sqs:2.2.+
 ====================================== =======================================
 
 Option 2: Import the JAR Files
@@ -90,14 +94,13 @@ Source code is available on `GitHub <https://github.com/aws/aws-sdk-android>`_.
 
 **If using Android Studio:**
 
-In the Project view, drag :file:`aws-android-sdk-#-#-#-core.jar` and
-:file:`aws-android-sdk-cognito-#.#.#.jar` plus the :file:`.jar` files for the individual services
+In the Project view, drag :file:`aws-android-sdk-#-#-#-core.jar` plus the :file:`.jar` files for the individual services
 your project will use into the :file:`apps/libs` folder. They'll be included on the build path
 automatically. Then, sync your project with the Gradle file.
 
 **If using Eclipse:**
 
-Drag the :file:`aws-android-sdk-#-#-#-core.jar` and :file:`aws-android-sdk-cognito-#.#.#.jar` files
+Drag the :file:`aws-android-sdk-#-#-#-core.jar` file
 plus the :file:`.jar` files for the individual services your project will use, into the :file:`libs`
 folder. They'll be included on the build path automatically.
 
@@ -131,7 +134,7 @@ Here's an example of how you can add `Amazon Cognito Identity <http://aws.amazon
         </dependency>
         <dependency>
             <groupid>com.amazonaws</groupid>
-            <artifactid>aws-android-sdk-cognito</artifactid>
+            <artifactid>aws-android-sdk-s3</artifactid>
             <version>[2.2.0, 2.3)</version>
         </dependency>
         <dependency>
@@ -154,14 +157,19 @@ The AWS Mobile :code:`artifactId` values are as follows:
 Service/Feature                        artifactID
 ====================================== =======================================
 AWS Mobile SDK Core [#f1]_             aws-android-sdk-core
+Amazon API Gateway                     aws-android-sdk-apigateway-core
 Auto Scaling                           aws-android-sdk-autoscaling
 Amazon Cloud Watch                     aws-android-sdk-cloudwatch
 Amazon Cognito Sync                    aws-android-sdk-cognito
+Amazon Cognito Identity Provider       aws-android-sdk-cognitoidentityprovider
 Amazon DynamoDB                        aws-android-sdk-ddb
 Amazon DynamoDB Object Mapper          aws-android-sdk-ddb-mapper
 Amazon EC2                             aws-android-sdk-ec2
 Elastic Load Balancing                 aws-android-sdk-elb
+AWS IoT                                aws-android-sdk-iot
 Amazon Kinesis                         aws-android-sdk-kinesis
+AWS Key Management Service (KMS)       aws-android-sdk-kms
+AWS Lambda                             aws-android-sdk-lambda
 Amazon Machine Learning                aws-android-sdk-machinelearning
 Amazon Mobile Analytics                aws-android-sdk-mobileanalytics
 Amazon S3                              aws-android-sdk-s3
