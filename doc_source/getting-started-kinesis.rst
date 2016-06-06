@@ -11,9 +11,9 @@
 .. highlight:: java
 
 
-##################################
-Writing App Data to Amazon Kinesis
-##################################
+######################################################################
+Process Streaming Data with Amazon Kinesis and Amazon Kinesis Firehose
+######################################################################
 
 `Amazon Kinesis <http://aws.amazon.com/kinesis/>`_ is a fully managed service for real-time
 processing of streaming data at massive scale. `Amazon Kinesis Firehose

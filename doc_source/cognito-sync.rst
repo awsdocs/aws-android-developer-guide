@@ -10,9 +10,9 @@
 
 .. highlight:: java
 
-###################
-Amazon Cognito Sync
-###################
+#######################################
+Sync User Data with Amazon Cognito Sync
+#######################################
 
 What is Amazon Cognito Sync?
 ============================

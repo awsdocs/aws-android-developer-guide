@@ -11,7 +11,7 @@
 .. highlight:: java
 
 #####################################
-Tracking App Usage Data with |MAlong|
+Track App Usage Data with |MAlong|
 #####################################
 
 |MAlong| allows you to measure app usage and app revenue. By tracking key trends such as new vs.

@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+Authenticate Users with Amazon Cognito Identity.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -11,9 +11,9 @@
 .. highlight:: java
 
 
-#######################
-Amazon Cognito Identity
-#######################
+###############################################
+Authenticate Users with Amazon Cognito Identity
+###############################################
 
 
 What is Amazon Cognito Identity?
