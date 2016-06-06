@@ -12,7 +12,7 @@
 
 
 #########################################
-Execute Code On Demand with Amazon Lambda
+Mobie Backend Using Amazon Lambda
 #########################################
 
 AWS Lambda is a compute service that runs your code in response to events and automatically manages

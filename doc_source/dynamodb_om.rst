@@ -10,9 +10,9 @@
 
 .. highlight:: java
 
-###############
-Amazon DynamoDB
-###############
+##############################################
+Store and Retrieve App Data in Amazon DynamoDB
+##############################################
 
 What is Amazon DynamoDB?
 ========================

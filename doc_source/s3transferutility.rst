@@ -11,9 +11,9 @@
 .. highlight:: java
 
 
-##################################
-Amazon Simple Storage Service (S3)
-##################################
+#######################################
+Store and Retrieve Files with Amazon S3
+#######################################
 
 What is Amazon S3?
 ==================
