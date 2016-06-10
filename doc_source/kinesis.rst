@@ -161,7 +161,7 @@ Add the following imports to the main activity of your app.
 
 .. code-block:: java
 
-    import com.amazonaws.mobileconnectors.kinesisrecorder.*;
+    import com.amazonaws.mobileconnectors.kinesis.kinesisrecorder.*;
     import com.amazonaws.auth.CognitoCachingCredentialsProvider;
     import com.amazonaws.regions.Regions;
 
@@ -188,7 +188,7 @@ region enum, and the directory.
 
     String kinesisDirectory = "YOUR_UNIQUE_DIRECTORY";
     KinesisRecorder recorder = new KinesisRecorder(
-        myActiity.getDir(kinesisDirectory, 0)
+        myActivity.getDir(kinesisDirectory, 0)
         Regions.US_WEST_2,
         credentialsProvider
         );

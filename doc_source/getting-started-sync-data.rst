@@ -36,7 +36,7 @@ You must complete all of the instructions on the `Set Up the SDK for Android
 this tutorial.
 
 
-1nitialize the CognitoSyncManager
+Initialize the CognitoSyncManager
 =================================
 
 Pass your initialized Amazon Cognito credentials provider to the :code:`CognitoSyncManager`
