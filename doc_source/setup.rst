@@ -209,7 +209,7 @@ Cognito Developer Guide <http://docs.aws.amazon.com/cognito/devguide/identity/id
 To create an identity pool for your application:
 
 #. Log in to the `Amazon Cognito Console <https://console.aws.amazon.com/cognito/home>`_ and click
-   :guilabel:`Create new identity pool`.
+   :guilabel:`Manage Federated Identities`, then :guilabel:`Create new identity pool`.
 
 #. Enter a name for your Identity Pool and check the checkbox to enable access to unauthenticated
    identities. Click :guilabel:`Create Pool` to create your identity pool.
