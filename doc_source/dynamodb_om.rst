@@ -79,12 +79,12 @@ application. For more information on identity pools, see the `Cognito Developer 
 To create an identity pool for your application:
 
 #. Log in to the `Cognito Console <https://console.aws.amazon.com/cognito/home>`_ and click
-   :guilabel:`Create new identity pool`.
+   :guilabel:`Manage Federated Identities`, then :guilabel:`Create new identity pool`.
 
 #. Enter a name for your Identity Pool and check the checkbox to enable access to unauthenticated
    identities. Click :guilabel:`Create Pool` to create your identity pool.
 
-#. Click :guilabel:`Allow` to create the roles associated with your identity pool.
+#. Click :guilabel:`Allow` to create the roles with access to your new identity pool.
 
 The next page displays code that creates a credentials provider so you can easily integrate Cognito
 Identity in your Android application.
