@@ -111,6 +111,14 @@ constructor::
     AmazonDynamoDBClient ddbClient = new AmazonDynamoDBClient(credentialsProvider);
 
 
+Initialize DynamoDBMapper
+=========================
+
+Pass your initialized DynamoDB client to the :code:`DynamoDBMapper` constructor::
+
+    DynamoDBMapper mapper = new DynamoDBMapper(ddbClient);
+
+
 Write a Row
 ===========
 
