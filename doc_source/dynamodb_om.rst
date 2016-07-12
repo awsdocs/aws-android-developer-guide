@@ -281,7 +281,14 @@ Interact with Stored Objects
 ============================
 
 Now that we have a database, a mapping class, and an Object Mapper client, we can start interacting
-with objects in the cloud.
+with objects in the cloud. These calls are synchronous and must be taken off of the main thread. You can wrap the code with::
+   Runnable runnable = new Runnable() {
+        public void run() {
+        //DynamoDB calls go here
+   };
+   Thread mythread = new Thread(runnable);
+   mythread.start();
+
 
 Save an Item
 ------------
