@@ -160,7 +160,7 @@ Apply this policy to the unauthenticated role assigned to your Cognito identity 
 
 #. Click :guilabel:`Apply Policy`.
 
-To learn more about IAM policies, see :iam-ug:`Using IAM <IAM_Introduction`. To learn more about
+To learn more about IAM policies, see `Overview of IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>`. To learn more about
 DynamoDB-specific policies, see :ddb-dg:`Using IAM to Control Access to DynamoDB Resources
 <UsingIAMWithDDB>`.
 
