@@ -135,6 +135,8 @@ Before using S3 in your application, you should familiarize yourself with the fo
 * :code:`OBJECT_KEY` - A string representing the name of the S3 object (a file in this case) to download.
 * :code:`MY_FILE` - The java.io.File object where the downloaded file will be written.
 
+For a complete working sample, see `S3 Transfer Untility Sample <https://github.com/awslabs/aws-sdk-android-samples/tree/master/S3TransferUtilitySample>`_.
+
 Upload an Object to S3
 ----------------------
 
