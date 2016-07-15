@@ -160,7 +160,7 @@ Apply this policy to the unauthenticated role assigned to your Cognito identity 
 
 #. Click :guilabel:`Apply Policy`.
 
-To learn more about IAM policies, see `Overview of IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>`_. To learn more about DynamoDB-specific policies, see :ddb-dg: `Using IAM to Control Access to DynamoDB Resources <UsingIAMWithDDB>`_.
+To learn more about IAM policies, see `Overview of IAM Policies <http://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html>`_. To learn more about DynamoDB-specific policies, see :ddb-dg: `Authentication and Access Control <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/authentication-and-access-control.html>`_.
 
 Create a DynamoDB Client and Object Mapper
 ==========================================
