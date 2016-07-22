@@ -30,6 +30,8 @@ Transfer Utility, which is replacing the S3 Transfer Manager as of AWS Mobile SD
 For information on migrating from the S3 Transfer Manager to the S3 Transfer Utility, see `Migrating
 from the Transfer Manager to the Transfer Utility <http://mobile.awsblog.com>`_ on the AWS Blog.
 
+For a complete sample that shows how to use the TransferUtility class to perform download and upload tasks, and manage the tasks, see `Running S3TransferUtility Sample <https://github.com/awslabs/aws-sdk-android-samples/tree/master/S3TransferUtilitySample>`_
+
 Setup
 =====
 
@@ -109,14 +111,12 @@ Add the following declaration to your :file:`AndroidManifest.xml`:
 Instantiate an S3 Client
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Pass your credentials provider to the S3 client constructor. Then, set the region on the client,
-like so::
+Pass your credentials provider to the S3 client constructor, like so::
 
   // Create an S3 client
   AmazonS3 s3 = new AmazonS3Client(credentialsProvider);
 
-  // Set the region of your S3 bucket
-  s3.setRegion(Region.getRegion(Regions.MY_BUCKET_REGION));
+  
 
 Instantiate TransferUtility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -129,11 +129,6 @@ client and the application context to the Transfer Utility, like so::
 Operations
 ==========
 
-Before using S3 in your application, you should familiarize yourself with the following concepts:
-
-* :code:`MY_BUCKET` - A string representing the name of the S3 bucket where the file is stored.
-* :code:`OBJECT_KEY` - A string representing the name of the S3 object (a file in this case) to download.
-* :code:`MY_FILE` - The java.io.File object where the downloaded file will be written.
 
 Upload an Object to S3
 ----------------------
