@@ -130,6 +130,8 @@ Operations
 ==========
 
 
+For a complete working sample, see `S3 Transfer Untility Sample <https://github.com/awslabs/aws-sdk-android-samples/tree/master/S3TransferUtilitySample>`_.
+
 Upload an Object to S3
 ----------------------
 
