@@ -81,13 +81,15 @@ To set IAM Permissions for AWS Lambda:
 #. Click the role for unauthenticated users (it will have :code:`unauth` appended to your Identity
    Pool name).
 
-#. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Policy Generator`, and then
+#. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Custom Policy`, and then
    click the :guilabel:`Select` button.
 
-#. Enter a name for your policy and paste in the policy document shown above, replacing the resource
-   values with the ARN for your function. You can view the ARN for your function in the AWS Lambda
-   Console by clicking the function name. Your ARN will look like this:
-   :code:`arn:aws:lambda:us-west-2:account-id:function:invokeFunction`.
+#. Enter a name for your policy and paste in the policy document shown above.
+
+#  Replace the function’s resource value :code `“resource-id”` with the ARN for your function. You can 
+   view the ARN for your function in the AWS Lambda Console by clicking the function name. Once you 
+   have pasted the ARN into the function code it will look like this:
+   :code:`”arn:aws:lambda:us-west-2:012345678901:function:invokeFunctionName”`.
 
 #. Click the :guilabel:`Add Statement` button, and then click the :guilabel:`Next Step` button. The
    wizard will show you the configuration that you generated.

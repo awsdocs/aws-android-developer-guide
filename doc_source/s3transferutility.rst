@@ -44,7 +44,7 @@ Create and Configure an S3 Bucket
 ---------------------------------
 
 |S3| stores your application's resources in buckets |mdash| cloud storage containers that live in a
-specific `region <regions-and-endpoints>`_.
+specific `region <http://docs.aws.amazon.com/AmazonS3/latest/dev/Introduction.html#Regions>`_.
 
 Create a Bucket
 ~~~~~~~~~~~~~~~
