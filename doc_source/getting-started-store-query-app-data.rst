@@ -37,28 +37,23 @@ Create a DynamoDB Table
 =======================
 
 Before you can read and write data to a DynamoDB database, you must create a table. When creating a
-table you must specify the primary key.  The primary key is composed of a hash attribute and an
-optional range attribute. For more information on how primary and range attributes are used, see
+table you must specify the primary key.  The primary key is composed of a partition key attribute and an optional sort key attribute. For more information on how primary and sort attributes are used, see
 `Working With Tables`_.
 
-#. Browse to the `DynamoDB Console`_ and click the :guilabel:`Create Table` button. The Create Table
-   wizard appears.
+#. To invoke the wizard, navigate to the  `DynamoDB Console`_  and choose :guilabel:`Create Table`.
 
-#. Specify your table name, primary key type, hash attribute name, and range attribute name as shown
-   below, and then click :guilabel:`Continue`:
+#. For :guilabel:`Table name` type :guilabel:`Books`. 
+
+#. In :guilabel:`Primary key`, for :guilabel:`Partition key`, type :guilabel:`Author` for the
+   partition key value and choose :guilabel:`String` for the key type.
+
+
+#. Choose :guilabel:`Add sort key`.#. In :guilabel:`Add sort key`, type :guilabel:`Title` for the sort key value and 
+   choose :guilabel:`String` for the key type.
 
    .. image:: ./images/create-table.png
 
-#. Leave the edit fields in the next screen empty and click the :guilabel:`Continue` button.
-
-#. Accept the default values for :guilabel:`Read Capacity Units` and :guilabel:`Write Capacity
-   Units` and click the :guilabel:`Continue` button.
-
-#. On the next screen enter your email address in the :guilabel:`Send notification to:` text box and
-   click the :guilabel:`Continue` button.
-
-#. On the next screen you will see a review of your settings, click the :guilabel:`Create` button.
-   It may take a few minutes for your table to be created.
+#. Keep :guilabel:`Use default settings` selected and click :guilabel:`Create`.
 
 
 Update IAM Roles

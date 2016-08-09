@@ -54,9 +54,29 @@ Set IAM Permissions
 
 The default IAM role policy grants your users access to Amazon Mobile Analytics and Amazon Cognito
 Sync. To use AWS Lambda in your application, you must configure the IAM role policy so that it
-allows your application and your users access to AWS Lambda. The following IAM policy allows the
+allows your application and your users access to AWS Lambda. The IAM policy in the following steps allows the
 user to perform the actions shown in this tutorial on a given AWS Lambda function identified by its
-Amazon Resource Name (ARN). The ARN is found in the Lambda Console by clicking the function name::
+Amazon Resource Name (ARN). To find the ARN go to the Lambda Console and click the :guilabel:`Function name`.
+
+To set IAM Permissions for AWS Lambda:
+
+1. Navigate to the :console:`IAM Console <iam/home?region=us-east-1#>` and click :guilabel:`Roles`
+   in the left-hand pane.
+
+2. Type your identity pool name into the search box. Two roles will be listed: one for
+   unauthenticated users and one for authenticated users.
+
+3. Click the role for unauthenticated users (it will have :code:`unauth` appended to your Identity
+   Pool name).
+
+4. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Custom Policy`, and then
+   click the :guilabel:`Select` button.
+
+5. Enter a name for your policy and paste in the following policy document, replacing the function’s 
+   :code:`Resource` value with the ARN for your function (click your function’s :guilabel:`Function name`   
+   in the AWS Lambda console to view its ARN).
+
+.. code-block:: json
 
    {
       "Statement": [{
@@ -65,36 +85,17 @@ Amazon Resource Name (ARN). The ARN is found in the Lambda Console by clicking t
              "lambda:invokefunction"
          ],
          "Resource": [
-            "resource-id",
+            ”arn:aws:lambda:us-west-2:012345678901:function:yourFunctionName”,
          ]
       }]
    }
 
-To set IAM Permissions for AWS Lambda:
 
-#. Navigate to the :console:`IAM Console <iam/home?region=us-east-1#>` and click :guilabel:`Roles`
-   in the left-hand pane.
 
-#. Type your identity pool name into the search box. Two roles will be listed: one for
-   unauthenticated users and one for authenticated users.
-
-#. Click the role for unauthenticated users (it will have :code:`unauth` appended to your Identity
-   Pool name).
-
-#. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Custom Policy`, and then
-   click the :guilabel:`Select` button.
-
-#. Enter a name for your policy and paste in the policy document shown above.
-
-#  Replace the function’s resource value :code `“resource-id”` with the ARN for your function. You can 
-   view the ARN for your function in the AWS Lambda Console by clicking the function name. Once you 
-   have pasted the ARN into the function code it will look like this:
-   :code:`”arn:aws:lambda:us-west-2:012345678901:function:invokeFunctionName”`.
-
-#. Click the :guilabel:`Add Statement` button, and then click the :guilabel:`Next Step` button. The
+6. Click the :guilabel:`Add Statement` button, and then click the :guilabel:`Next Step` button. The
    wizard will show you the configuration that you generated.
 
-#. Click the :guilabel:`Apply Policy` button.
+7. Click the :guilabel:`Apply Policy` button.
 
 To learn more about IAM policies, see `IAM documentation
 <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
