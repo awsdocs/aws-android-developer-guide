@@ -161,7 +161,7 @@ Data Types
 
 A method, annotated with LambdaFunction, can have at most one argument. When invoked, its argument
 is serialized into JSON. The invocation is translated to an AWS request and is sent to AWS Lambda
-service. After excution, Lambda returns a JSON encoded response which is deserialized into an object
+service. After execution, Lambda returns a JSON encoded response which is deserialized into an object
 whose type matches the return type of the method. The (de)serialization is handled by
 LambdaDataBinder. The default implementation is LambdaJsonBinder backed by Gson.
 

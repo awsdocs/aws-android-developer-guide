@@ -24,7 +24,7 @@ connected mobile applications using |AWSlong| (AWS). Supported AWS services curr
 * |AK|_
 * |LAM|_
 
-Compatability
+Compatibility
 =============
 
 The |sdk-android| is compatible with Android 2.3.3 (API Level 10) or higher. For more information
