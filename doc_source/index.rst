@@ -32,6 +32,7 @@ to set up the SDK, and how to get started using AWS services from an Android app
    dynamodb_om
    kinesis
    lambda
+   lex
 
 Additional Resources
 ====================

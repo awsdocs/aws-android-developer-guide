@@ -25,6 +25,7 @@ services from Android apps. This guide will walk you through the following:
    getting-started-kinesis
    getting-started-lambda
    getting-started-machine-learning
+   getting-started-understand-natural-language-lex
 
 For information about other AWS Mobile SDKs, see `AWS Mobile SDK`_.
 
