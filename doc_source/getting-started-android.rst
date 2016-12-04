@@ -26,6 +26,8 @@ services from Android apps. This guide will walk you through the following:
    getting-started-lambda
    getting-started-machine-learning
    getting-started-understand-natural-language-lex
+   getting-started-text-to-speech-polly
+   getting-started-interactive-user-campaigns-pinpoint
 
 For information about other AWS Mobile SDKs, see `AWS Mobile SDK`_.
 

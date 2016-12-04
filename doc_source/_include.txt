@@ -1,0 +1,10 @@
+s.. project-specific includes for this project.
+
+.. |sdk-deepsense-dl| replace:: http://x.zip
+
+.. |LEXlong| replace:: Amazon Lex
+
+.. |LEX| replace:: Amazon Lex
+
+.. |ADSguide| replace:: <a href=“http://docs.aws.amazon.com/“ target=“_blank”>|LEXlong|</a>
+

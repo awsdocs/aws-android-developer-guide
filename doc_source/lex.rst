@@ -11,26 +11,45 @@
 .. highlight:: java
 
 ########################################################################
-Understand Natural Languge and Trigger Business Worflows with |LEX|
+Understand Natural Language and Trigger Business Workflows with |LEX|
 ########################################################################
 
-What is LEX?
-==============
+What is |LEX|?
+===============================
 
-LEX is an AWS service for building conversational interfaces into applications using voice and text. With LEX, the same deep learning engine that powers Amazon Alexa is now available to any developer, enabling you to build sophisticated, natural language chatbots into your new and existing applications. LEX provides the deep functionality and flexibility of natural language understanding (NLU) and automatic speech recognition (ASR) to enable you to build highly engaging user experiences with lifelike, conversational interactions and create new categories of products.
+|LEX| is an AWS service for building conversational interfaces into applications using voice and text.
+With |LEX|, the same deep learning engine that powers Amazon Alexa is now available to any developer,
+enabling you to build sophisticated, natural language chatbots into your new and existing applications.
+|LEX| provides the deep functionality and flexibility of natural language understanding (NLU) and
+automatic speech recognition (ASR) to enable you to build highly engaging user experiences with lifelike,
+conversational interactions and create new categories of products.
 
-LEX enables any developer to build conversational chatbots quickly. With LEX, no deep learning expertise is necessary—you just specify the basic conversation flow in the LEX console to create a bot. LEX manages the dialogue and dynamically adjusts the responses in the conversation. Using the console, you can build, test, and publish your text or voice chatbot. You can then add the conversational interfaces to bots on mobile devices, web applications, and chat platforms (for example, Facebook Messenger).
+|LEX| enables any developer to build conversational chatbots quickly. With |LEX|, no deep learning
+expertise is necessary—you just specify the basic conversation flow in the |LEX| console to create a bot.
+|LEX| manages the dialogue and dynamically adjusts the responses in the conversation. Using the console,
+you can build, test, and publish your text or voice chatbot. You can then add the conversational interfaces
+to bots on mobile devices, web applications, and chat platforms (for example, Facebook Messenger).
 
-LEX provides pre-built integration with AWS Lambda, and you can easily integrate with many other services on the AWS platform including Amazon Cognito, AWS Mobile Hub, Amazon CloudWatch, and Amazon DynamoDB. Integration with AWS Lambda provides bots access to pre-built serverless enterprise connectors, to link to data in SaaS applications, such as Salesforce, HubSpot or Marketo.
+|LEX| provides pre-built integration with |LAMlong|, and you can easily integrate with many other services
+on the AWS platform including |COGlong|, |AMHlong|, Amazon |CW|, and |DDBlong|. Integration
+with |LAMlong| provides bots access to pre-built serverless enterprise connectors, to link to data in SaaS
+applications, such as Salesforce, HubSpot or Marketo.
 
-Using the following resources, you can integrate LEX withyour Android app to add a flexible natural language interface without deep knowledge of either AWS services or natural language computing.
+Using the following resources, you can integrate |LEX| with your Android app to add a flexible natural
+language interface for voice and text chat. No deep knowledge of either AWS services or natural language computing
+is needed.
 
-For information on Amazon LEX concepts and service configuration, see `LEX LINK <...>`_.
+For information on |LEX| concepts and service configuration, see
+:LEX-dg:`How it Works <how-it-works>` in the |LEX-dg|.
 
-For instructions on how to integrate LEX in your Android application, see ` <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/getting-started-understand-natural-language-lex.html>`_.
+For instructions on how to integrate |LEX| into your Android application, see
+:doc:`getting-started-understand-natural-language-lex`.
 
-For end to end sample apps using LEX:
+For end to end sample apps using |LEX|:
 
-- See `Link to SDK Sample App <...>`_.
-- Use `AWS Mobile Hub<>`_ Conversational Bots feature to configure and an LEX create a sample app .
+- See |LEX| sample app in the `AWS SDK for Android samples <https://github.com/awslabs/aws-sdk-android-samples/>`_.
+
+- Use the Conversational Bots feature in `AWS MobileHub <https://aws.amazon.com/mobile/>`_ to quickly configure and provision a |LEX| backend in the cloud.
+  You can then download a working demonstration Android app project and SDK and helper files, all customized to match
+  your configuration choices.
 

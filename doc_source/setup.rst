@@ -75,9 +75,12 @@ Elastic Load Balancing                 com.amazonaws:aws-android-sdk-elb:2.2.+
 AWS IoT                                com.amazonaws:aws-android-sdk-iot:2.2.+
 Amazon Kinesis                         com.amazonaws:aws-android-sdk-kinesis:2.2.+
 AWS Key Management Service (KMS)       com.amazonaws:aws-android-sdk-kms:2.2.+
+Amazon Lex                             com.amazonaws:aws-android-sdk-lex:2.3.4@aar
 AWS Lambda                             com.amazonaws:aws-android-sdk-lambda:2.2.+
 Amazon Machine Learning                com.amazonaws:aws-android-sdk-machinelearning:2.2.+
 Amazon Mobile Analytics                com.amazonaws:aws-android-sdk-mobileanalytics:2.2.+
+Amazon Pinpoint                        com.amazonaws:aws-android-sdk-pinpoint:2.3.5
+Amazon Polly                           com.amazonaws:aws-android-sdk-polly:2.3.4
 Amazon S3                              com.amazonaws:aws-android-sdk-s3:2.2.+
 Amazon Simple DB                       com.amazonaws:aws-android-sdk-sdb:2.2.+
 Amazon SES                             com.amazonaws:aws-android-sdk-ses:2.2.+
@@ -170,8 +173,11 @@ AWS IoT                                aws-android-sdk-iot
 Amazon Kinesis                         aws-android-sdk-kinesis
 AWS Key Management Service (KMS)       aws-android-sdk-kms
 AWS Lambda                             aws-android-sdk-lambda
+AWmazon Lex                            aws-android-sdk-lex
 Amazon Machine Learning                aws-android-sdk-machinelearning
 Amazon Mobile Analytics                aws-android-sdk-mobileanalytics
+Amazon Pinpoint                        aws-android-sdk-pinpoint
+Amazon Polly                           aws-android-sdk-polly
 Amazon S3                              aws-android-sdk-s3
 Amazon Simple DB                       aws-android-sdk-sdb
 Amazon SES                             aws-android-sdk-ses
@@ -241,6 +247,10 @@ Next Steps
 
 - **Read the API Reference**: View the `API Reference
   <https://docs.aws.amazon.com/AWSAndroidSDK/latest/javadoc/>`_ for the AWS Mobile SDK for Android.
+
+- **Try AWS Mobile Hub**: Quickly configure and provision an AWS cloud backend for many common mobile
+  app features, and download end to end working Android demonstration projects, SDK, and helper code, all
+  generated based on your choices. These are accompanied by detailed integration guidance for your mobile app.
 
 - **Ask questions**: Post questions on the :forum:`AWS Mobile SDK Forums <88>`.
 

@@ -10,284 +10,242 @@
 
 .. highlight:: java
 
-####################################################
+###################################################
 Adding Natural Language Speech and Text to your App
-####################################################
+###################################################
 
-What is LEX?
-=============
+What is |LEX|?
+==============
 
-|LEXong| is ....
+|LEX| is an AWS service for building voice and text conversational interfaces into applications. With |LEX|, the same natural language understanding engine that powers Amazon Alexa is now available to any
+developer, enabling you to build sophisticated, natural language chatbots into your new and existing
+applications.
 
-The |sdk-lex| provides .
+The |sdk-android| provides an optimized client for interacting with |LEX| runtime APIs,
+which support both voice and text input and can return either voice or text. |LEX| has built-in
+integration with AWS Lambda to allow insertion of custom business logic into your |LEX| processing flow, including all of the extension to other services that Lambda makes possible.
 
-??? For information about LEX Region availability, see  `AWS Service Region Availability
-<http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>`_.
+For information on |LEX| concepts and service configuration, see
+`How it Works <http://docs.aws.amazon.com/lex/latest/dg/how-it-works.html>`_ in the |LEX-dg|.
 
-??? To get started using the Amazon Kinesis mobile client, you'll need to integrate the SDK for Android
+For information about |LEX| Region availability, see `AWS Service Region Availability <http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>`_.
+
+To get started using the |LEX| mobile client, integrate the SDK for Android
 into your app, set the appropriate permissions, and import the necessary libraries.
 
 
-Getting Started
-===============
-
-Create an Identity Pool
------------------------
-
-To use AWS services in your mobile application, you must obtain AWS Credentials using |COGID| as
-your credential provider. Using a credentials provider allows you to access AWS services without
-having to embed your private credentials in your application. This also allows you to set
-permissions to control which AWS services your users have access to.
-
-The identities of your application's users are stored and managed by an identity pool, which is a
-store of user identity data specific to your account. Every identity pool has roles that specify
-which AWS resources your users can access. Typically, a developer will use one identity pool per
-application. For more information on identity pools, see the `Cognito Developer Guide
-<http://docs.aws.amazon.com/cognito/devguide/identity/identity-pools/>`_.
-
-To create an identity pool for your application:
-
-#. Log in to the :console:`Cognito Console <cognito>` and click :guilabel:`Create new identity
-   pool`.
-
-#. Enter a name for your Identity Pool and check the checkbox to enable access to unauthenticated
-   identities. Click :guilabel:`Create Pool` to create your identity pool.
-
-#. Click :guilabel:`Allow` to create the roles associated with your identity pool.
-
-The next page displays code that creates a credentials provider so you can easily integrate |COGID|
-in your Android application.
-
-For more information on Cognito Identity, see :doc:`cognito-auth`.
-
-
-Set IAM Permissions (Amazon Kinesis)
-------------------------------------
-
-To use Amazon Kinesis in an application, you must set the correct permissions. The following IAM
-policy allows the user to submit records to a Kinesis stream identified by :aws-gr:`ARN
-<aws-arns-and-namespaces>`:
-
-.. code-block:: java
-
-    {
-        "Statement": [{
-            "Effect": "Allow",
-            "Action": "kinesis:PutRecords",
-            "Resource": "arn:aws:kinesis:us-west-2:111122223333:stream/mystream"
-        }]
-    }
-
-This policy should be applied to roles assigned to the Cognito identity pool, but you will need to
-replace the :code:`Resource` value with the correct ARN for your Kinesis stream. You can apply
-policies at the `IAM console <https://console.aws.amazon.com/iam/>`_.
-
-
-
-For more information about ARN formatting and example policies, see `Amazon Resource Names for
-Amazon Kinesis
-<http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-iam.html#kinesis-using-iam-arn-format>`_.
-
-To learn more about LEX-specific policies, see
-`Controlling Access to LEXResources with IAM
-<http://docs.aws.amazon.com/???.html>`_.
-
-To learn more about IAM policies, see `Using IAM
-<http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
+Setting Up
+==========
 
 Include the SDK in Your Project
 -------------------------------
 
-Follow the instructions on the `Set Up the SDK for Android
-<http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/setup.html>`_ page to include the
-proper JAR files for this service and set the appropriate permissions.
+Follow the instructions at :doc:`setup` to include the JAR files for this service and set the appropriate
+permissions.
 
-Add App Gradle Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In your :file:`app/build.gradle` file, add the following dependency:
-
-..code-block:: java
-
-    compile(name:'aws-android-sdk-lex-2.3.4', ext:'aar')
 
 Set Permissions in Your Android Manifest
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In your :file:`AndroidManifest.xml` file, add the following permission:
+  In your :file:`AndroidManifest.xml` file, add the following permission:
 
-.. code-block:: java
+  .. code-block:: java
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-SA-SPECIFIC--Add Text and Voice Activities to Your Android Manifest
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Declare |LEX| as a Gradle dependency
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In your :file:`AndroidManifest.xml` file, add the following activity declarations:
+  Make sure the following  Gradle build dependency is declared in the :file:`app/build.gradle` file.
 
-.. code-block:: java
+  .. code-block:: sh
 
-        <activity android:name=".TextActivity" />
-        <activity android:name=".InteractiveVoiceActivity"></activity>
+    compile 'com.amazonaws:aws-android-sdk-lex:2.3.4@aar'
 
-Add Import Statements for Text Activity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Set IAM Permissions for |LEX|
+--------------------------------------------
 
-Add the following imports to the activity that implement the text features of your app.
+To use |LEX| in an application, create a role and attach policies as described in Step 1 of
+`Getting Started <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-prep.html>`_ in the |LEX-dg|.
 
-.. code-block:: java
+To learn more about IAM policies, see `Using IAM <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
 
-import com.amazonaws.mobileconnectors.lex.interactionkit.InteractionClient;
-import com.amazonaws.mobileconnectors.lex.interactionkit.Response;
-import com.amazonaws.mobileconnectors.lex.interactionkit.continuations.LexServiceContinuation;
-import com.amazonaws.mobileconnectors.lex.interactionkit.listeners.AudioPlaybackListener;
-import com.amazonaws.mobileconnectors.lex.interactionkit.listeners.InteractionListener;
-import com.amazonaws.services.lex.model.DialogState;
+Configure a Bot
+---------------
 
-Add Import Statements for Text Activity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To setup interaction between your mobile app and |LEX|, use the |LEX| console to configure a bot that fulfills
+your requirements. To learn more see |LEX-dg|_.
+For a quickstart, see Step 2 of `Getting Started <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-prep.html>`_ in the
+|LEX-dg|.
 
-Add the following imports to the activity that implement the text features of your app.
+|LEX| also supports model building APIs, which allow creation of bots, intents, and slots at runtime. This SDK does not
+currently offer additional support for interacting with |LEX| model building APIs.
 
-.. code-block:: java
-import com.amazonaws.mobileconnectors.lex.interactionkit.config.InteractionConfig;
-import com.amazonaws.mobileconnectors.lex.interactionkit.ui.InteractiveVoiceView;
-import com.amazonaws.mobileconnectors.lex.interactionkit.ui.InteractiveVoiceViewAdapter;
-import com.amazonaws.regions.Regions;
+Implement Text and Voice Interaction with |LEX|
+===============================================
 
-In both:
+Get AWS User Credentials
+------------------------
 
-.. code-block:: java
+Both text and voice API calls require validated AWS credentials. To establish Amazon Cognito as the credentials provider,
+include the following code in the function where you initialize your |LEX| interaction objects.
 
-import com.amazonaws.sample.lex.R;
+  .. code-block:: java
 
-Instantiate a Kinesis recorder
-==============================
+    CognitoCredentialsProvider credentialsProvider = new CognitoCredentialsProvider(
+                appContext.getResources().getString(R.string.identity_id_test),
+                Regions.fromName(appContext.getResources().getString(R.string.aws_region)));
 
-Once you've imported the necessary libraries and have your credentials object, you can instantiate
-:code:`KinesisRecorder`. :code:`KinesisRecorder` is a high-level client meant for storing PutRecord
-requests on an Android device. Storing requests on the device lets you retain data when the device
-is offline, and it can also increase performance and battery efficiency since the network doesn't
-need to be awakened as frequently.
+Integrate Lex Interaction Client
+--------------------------------
 
-.. note:: :code:`KinesisRecorder` uses synchronous calls, so you shouldn't call
-   :code:`KinesisRecorder` methods on the main thread.
+Perform the following tasks to implement interaction with Lex in your Android app.
 
-When you create the :code:`KinesisRecorder` client, you'll pass in a directory and an AWS region.
-The directory should be empty the first time you instantiate :code:`KinesisRecorder`; it should be
-private to your application; and, to prevent collision, it should be used only by
-:code:`KinesisRecorder`.  The following snippet creates a directory and instantiates the
-:code:`KinesisRecorder` client, passing in a Cognito credentials object (:code:`cognitoProvider`), a
-region enum, and the directory.
+Initialize Your Lex Interaction Client
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: java
+  Instantiate an :code:`InteractionClient`, providing the following parameters.
 
-    String kinesisDirectory = "YOUR_UNIQUE_DIRECTORY";
-    KinesisRecorder recorder = new KinesisRecorder(
-        myActivity.getDir(kinesisDirectory, 0)
-        Regions.US_WEST_2,
-        credentialsProvider
-        );
+    - The application context, credentials provider, and AWS Region
+    - :code:`bot_name` - name of the bot as it appears in the |LEX| console
+    - :code:`bot_alias` - the name associated with selected version of your bot
+    - :code:`InteractionListener` - your app's receiver for text responses from |LEX|
+    - :code:`AudioPlaybackListener`  - your app's receiver for voice responses from |LEX|
 
-You'll use :code:`KinesisRecorder` to save records and then send them in a batch.
+  .. code-block:: java
 
-.. code-block:: java
+    // Create Lex interaction client.
+        lexInteractionClient = new InteractionClient(getApplicationContext(),
+                credentialsProvider,
+                Regions.US_EAST_1,
+                <your_bot_name>,
+                <your_bot_alias>);
+        lexInteractionClient.setAudioPlaybackListener(audioPlaybackListener);
+        lexInteractionClient.setInteractionListener(interactionListener);
 
-    recorder.saveRecord("MyData".getBytes(),"MyStreamName");
-    recorder.submitAllRecords();
+Begin or Continue a Conversation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: For the :code:`saveRecord()` request above to work, you would have to have created a
-   stream named :guilabel:`MyStreamName`. You can create new streams in the `Amazon Kinesis console
-   <https://console.aws.amazon.com/kinesis>`_.
+  To begin a new conversation with |LEX|, we recommend that you clear any history of previous text interactions, and that
+  you maintain a :code:`inConversation` flag to make your app aware of when a conversation is in progress.
 
-If :code:`submitAllRecords()` is called while the app is online, requests will be sent and removed
-from the disk. If :code:`submitAllRecords()` is called while the app is offline, requests will be
-kept on disk until :code:`submitAllRecords()` is called while online. This applies even if you lose
-your internet connection midway through a submit. So if you save ten requests, call
-:code:`submitAllRecords()`, send five, and then lose the Internet connection, you have five requests
-left on disk. These remaining five will be sent the next time :code:`submitAllRecords()` is invoked
-online.
+  If :code:`inConversation` is false when user input is ready to be sent as |LEX| input,  then make a call using the
+  :code:`textInForTextOut`, :code:`textInForAudioOut`, :code:`audioInForTextOut`, or :code:`audioInForAudioOut` method
+  of an :code:`InteractionClient` instance. These calls are in the form of:
 
-To see how much space the :code:`KinesisRecorder` client is allowed to use, you can call
-:code:`getDiskByteLimit()`.
+  .. code-block:: java
 
-.. code-block:: java
+    lexInteractionClient.textInForTextOut(String text, Map<String, String> sessionAttributes)
 
-    Long byteLimit = recorder.getDiskByteLimit();
-    // Do something with byteLimit
+  If :code:`inConversation` is true, then the input should be passed to an instance of :code:`LexServiceContinuation`
+  using the :code:`continueWithTextInForTextOut`, :code:`continueWithTextInForAudioOut`, :code:`continueWithAudioInForTextOut`,
+  :code:`continueWithAudioInForAudioOut` method. Continuation enables |LEX| to persist the state and metadata of an ongoing conversation across multiple interactions.
 
-Alternatively, you can retrieve the same information by getting the :code:`KinesisRecorderConfig`
-object for the recorder and calling :code:`getMaxStorageSize():`
+Interaction Response Events
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: java
+  :code:`InteractionListener` captures a set of |LEX| response events that include:
 
-    KinesisRecorderConfig kinesisRecorderConfig = recorder.getKinesisRecorderConfig();
-    Long maxStorageSize = kinesisRecorderConfig.getMaxStorageSize();
-    // Do something with maxStorageSize
+  - :code:`onReadyForFulfillment(final Response response)`
 
-Storage limits
---------------
+    This response means that Lex has the information it needs to co fulfill the intent of the user and considers the
+    transaction complete. Typically, your app would set your :code:`inConversation` flag to false when this response arrives.
 
-If you exceed the storage limit for :code:`KinesisRecorder`, requests will not be saved or sent.
-:code:`KinesisRecorderConfig` has a default :code:`maxStorageSize` of 8 MiB. You can configure the
-maximum allowed storage via the :code:`withMaxStorageSize()` method of
-:code:`KinesisRecorderConfig`.
+  - :code:`promptUserToRespond(final Response response, final LexServiceContinuation continuation)`
 
-To check the number of bytes currently stored in the directory passed in to the
-:code:`KinesisRecoder` constructor, call :code:`getDiskBytesUsed()`:
+    This response means that |LEX| is providing the next piece of information needed in the conversation flow. Typically
+    your app would pass the received continuation on to your |LEX| client.
 
-.. code-block:: java
+  - :code:`onInteractionError(final Response response, final Exception e)`
 
-    Long bytesUsed = recorder.getDiskBytesUsed();
-    // Do something with bytesUsed
+    This response means that |LEX| is providing an identifier for the exception that has occured.
 
-To learn more about working with Amazon Kinesis, see `Amazon Kinesis Developer Resources
-<http://aws.amazon.com/kinesis/developer-resources/>`_. To learn more about the Kinesis classes, see
-the `API Reference for the Android SDK <http://docs.aws.amazon.com/AWSAndroidSDK/latest/javadoc/>`_.
+Microphone Events
+~~~~~~~~~~~~~~~~~
+
+  :code:`MicrophoneListener` captures events related to the microphone used for interaction with |LEX| that include:
+
+  - :code:`startedRecording()`
+
+    This event occurs when the user has started recording their voice input to |LEX|.
+
+  - :code:`onRecordingEnd()`
+
+    This event occurs when the user has finished recording their voice input to |LEX|.
+
+  - :code:`onSoundLevelChanged(double soundLevel)`
+
+    This event occurs when the volume level of audio being recorded changes.
+
+  - :code:`onMicrophoneError(Exception e)`
+
+    The event returns an exception when an error occurs while recording sound through the microphone.
+
+Audio Playback Events
+~~~~~~~~~~~~~~~~~~~~~
+
+  :code:`AudioPlaybackListener` captures a set of events relatedto |LEX| voice responses that include:
+
+  - :code:`onAudioPlaybackStarted()`
+
+    This event occurs when playback of a |LEX| voice response starts.
+
+  - :code:`onAudioPlayBackCompleted()`
+
+    This event occurs when playback of a |LEX| voice response finishes.
+
+  - :code:`onAudioPlaybackError(Exception e)`
+
+    This event returns an exception when an error occurs duringplayback of an |LEX| voice response.
 
 
-Use KinesisFirehoseRecorder
-===========================
+Add Voice Interactons
+---------------------
 
-To use :code:`KinesisFirehoseRecorder`, you need to pass the object in a directory where streaming
-data is saved. It’s recommended to use an app private directory because the data isn’t encrypted.
+Perform the following tasks to implement voice interaction with |LEX| in your Android app.
 
-.. code-block:: java
+:code:`InteractiveVoiceView` simplifies the acts of receiving and playing voice responses from Lex by internally
+using the :code:`InteractionClient` methods and both :code:`MicrophoneListener` and :code:`AudioPlaybackListener` events
+described in the preceding sections. You can use those interfaces directly instead of instantiating
+:code:`InteractiveVoiceView`.
 
-    // Gets a working directory for the recorder
-    File directory = context.getCachedDir();
-    // Sets Firehose region
-    Regions region = Regions.US_WEST_2;
-    // Initialize a credentials provider to access Amazon Kinesis Firehose
-    AWSCredentialsProvider provider = new CognitoCachingCredentialsProvider(
-            context,
-            "identityPoolId",
-            Regions.US_EAST_1); // region of your Amazon Cognito identity pool
-    KinesisFirehoseRecorder firehoseRecorder = new KinesisFirehoseRecorder(
-            directory, region, provider);
+Add a :code:`voice-component` Layout Element to Your Activity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    // Start to save data, either a String or a byte array
-    firehoseRecorder.saveRecord("Hello world!\n");
-    firehoseRecorder.saveRecord("Streaming data to Amazon S3 via Amazon Kinesis Firehose is easy.\n");
+  In the layout for your activity class that contains the voice interface for your app, include the following element.
 
-    // Send previously saved data to Amazon Kinesis Firehose
-    // Note: submitAllRecords() makes network calls, so wrap it in an AsyncTask.
-    new AsyncTask<Void, Void, Void>() {
-        @Override
-        protected Void doInBackground(Void... v) {
-            try {
-                firehoseRecorder.submitAllRecords();
-            } catch (AmazonClientException ace) {
-                // handle error
-            }
-        }
-    }.execute();
+  .. code-block:: xml
 
-To learn more about working with Amazon Kinesis Firehose, see `Amazon Kinesis Firehose
-<http://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html>`_.
+     <include
+        android:id="@+id/voiceInterface"
+        layout="@layout/voice_component"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+         />
 
-To learn more about the Kinesis Firehose classes, see the `API Reference for the Android SDK
-<http://docs.aws.amazon.com/AWSAndroidSDK/latest/javadoc/>`_.
+Initialize Your Voice Activity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  In your activity class that contains the voice interface for your app, have the base class implement
+  :code:`InteractiveVoiceView.InteractiveVoiceListener`.
+
+  The following code shows initialization of :code:`InteractiveVoiceView`.
+
+  .. code-block:: java
+
+    private void init() {
+        appContext = getApplicationContext();
+        voiceView = (InteractiveVoiceView) findViewById(R.id.voiceInterface);
+        voiceView.setInteractiveVoiceListener(this);
+        CognitoCredentialsProvider credentialsProvider = new CognitoCredentialsProvider(
+            <your_conginto_identity_pool_id>,
+            Regions.fromName(<your_aws_region>)));
+        voiceView.getViewAdapter().setCredentialProvider(credentialsProvider);
+        voiceView.getViewAdapter().setInteractionConfig(
+            new InteractionConfig(<your_bot_name>),
+                <your_bot_alias>));
+        voiceView.getViewAdapter().setAwsRegion(<your_aws_region>));
+    }
 

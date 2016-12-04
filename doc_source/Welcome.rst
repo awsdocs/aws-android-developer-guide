@@ -23,6 +23,9 @@ connected mobile applications using |AWSlong| (AWS). Supported AWS services curr
 * |DDB|_
 * |AK|_
 * |LAM|_
+* :doc:`Amazon Lex<lex>`
+* :doc:`Amazon Polly<polly>`
+* :doc:`Amazon Pinpoint<pinpoint>`
 
 Compatibility
 =============
@@ -153,3 +156,4 @@ The SDK is distributed as a :file:`.zip` file containing the following assets:
 .. _Amazon Simple Notification Service: http://aws.amazon.com/sns/
 .. _Amazon Kinesis: http://aws.amazon.com/kinesis
 .. _AWS Lambda: http://aws.amazon.com/lambda
+

@@ -21,6 +21,7 @@ to set up the SDK, and how to get started using AWS services from an Android app
 
 .. toctree::
    :maxdepth: 1
+   :titlesonly:
 
    Welcome
    setup
@@ -33,6 +34,9 @@ to set up the SDK, and how to get started using AWS services from an Android app
    kinesis
    lambda
    lex
+   polly
+   pinpoint
+
 
 Additional Resources
 ====================
@@ -49,3 +53,4 @@ Additional Resources
 - Post questions and feedback at the `Mobile Developer Forum <https://forums.aws.amazon.com/forum.jspa?forumID=88>`_.
 
 - Source code and sample applications are available at `AWS Mobile SDK for Android sample repository <https://github.com/awslabs/aws-sdk-android-samples>`_.
+
