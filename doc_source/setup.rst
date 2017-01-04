@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -173,7 +173,7 @@ AWS IoT                                aws-android-sdk-iot
 Amazon Kinesis                         aws-android-sdk-kinesis
 AWS Key Management Service (KMS)       aws-android-sdk-kms
 AWS Lambda                             aws-android-sdk-lambda
-AWmazon Lex                            aws-android-sdk-lex
+Amazon Lex                             aws-android-sdk-lex
 Amazon Machine Learning                aws-android-sdk-machinelearning
 Amazon Mobile Analytics                aws-android-sdk-mobileanalytics
 Amazon Pinpoint                        aws-android-sdk-pinpoint

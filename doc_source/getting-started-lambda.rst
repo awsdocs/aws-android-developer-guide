@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -72,8 +72,8 @@ To set IAM Permissions for AWS Lambda:
 4. Click the :guilabel:`Create Role Policy` button, select :guilabel:`Custom Policy`, and then
    click the :guilabel:`Select` button.
 
-5. Enter a name for your policy and paste in the following policy document, replacing the function’s 
-   :code:`Resource` value with the ARN for your function (click your function’s :guilabel:`Function name`   
+5. Enter a name for your policy and paste in the following policy document, replacing the function’s
+   :code:`Resource` value with the ARN for your function (click your function’s :guilabel:`Function name`
    in the AWS Lambda console to view its ARN).
 
 .. code-block:: json

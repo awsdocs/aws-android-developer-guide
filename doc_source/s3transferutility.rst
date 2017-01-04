@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -116,7 +116,7 @@ Pass your credentials provider to the S3 client constructor, like so::
   // Create an S3 client
   AmazonS3 s3 = new AmazonS3Client(credentialsProvider);
 
-  
+
 
 Instantiate TransferUtility
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -42,13 +42,15 @@ table you must specify the primary key.  The primary key is composed of a partit
 
 #. To invoke the wizard, navigate to the  `DynamoDB Console`_  and choose :guilabel:`Create Table`.
 
-#. For :guilabel:`Table name` type :guilabel:`Books`. 
+#. For :guilabel:`Table name` type :guilabel:`Books`.
 
 #. In :guilabel:`Primary key`, for :guilabel:`Partition key`, type :guilabel:`Author` for the
    partition key value and choose :guilabel:`String` for the key type.
 
 
-#. Choose :guilabel:`Add sort key`.#. In :guilabel:`Add sort key`, type :guilabel:`Title` for the sort key value and 
+#. Choose :guilabel:`Add sort key`.
+
+#. In :guilabel:`Add sort key`, type :guilabel:`Title` for the sort key value and
    choose :guilabel:`String` for the key type.
 
    .. image:: ./images/create-table.png

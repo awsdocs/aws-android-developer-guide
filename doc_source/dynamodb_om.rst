@@ -1,4 +1,4 @@
-.. Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+.. Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
    This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0
    International License (the "License"). You may not use this file except in compliance with the
@@ -107,7 +107,7 @@ To create the Books table:
 #. In the :guilabel:`Add Index` dialog enter :command:`Author` with :guilabel:`String` as its type.
 #. Check the :guilabel:`Add sort key` checkbox and enter :command:`Title` as the sort key value, with :guilabel:`String` as its type.
 #. Leave the other values at their defaults and click :guilabel:`Add index` to add the :command:`Author-Title-index` index.
-#. Set the read capacity to ``10`` and the write capacity to ``5``. 
+#. Set the read capacity to ``10`` and the write capacity to ``5``.
 #. Click :guilabel:`Create`. DynamoDB will create your database.
 #. Refresh the console and select your Books table from the list of tables.
 #. Open the :guilabel:`Overview` tab and copy or note the Amazon Resource Name (ARN). You'll need
