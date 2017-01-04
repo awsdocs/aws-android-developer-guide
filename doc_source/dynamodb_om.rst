@@ -283,6 +283,7 @@ with objects in the cloud. These calls are synchronous and must be taken off of 
    Runnable runnable = new Runnable() {
         public void run() {
         //DynamoDB calls go here
+        }
    };
    Thread mythread = new Thread(runnable);
    mythread.start();
