@@ -26,7 +26,7 @@ which support both voice and text input and can return either voice or text. |LE
 integration with AWS Lambda to allow insertion of custom business logic into your |LEX| processing flow, including all of the extension to other services that Lambda makes possible.
 
 For information on |LEX| concepts and service configuration, see
-`How it Works <http://docs.aws.amazon.com/lex/latest/dg/how-it-works.html>`_ in the |LEX-dg|.
+`How it Works <http://docs.aws.amazon.com/lex/latest/dg/how-it-works.html>`_ in the *Lex Developer Guide*.
 
 For information about |LEX| Region availability, see `AWS Service Region Availability <http://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/>`_.
 

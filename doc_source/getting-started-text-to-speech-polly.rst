@@ -15,7 +15,7 @@ Adding Text to Speech Conversion to your App
 ############################################
 
 What is |POL|?
-======================
+==============
 
 Amazon Polly is an AWS service for converting text to Speech.
 
@@ -24,10 +24,10 @@ the Polly service by your app.
 
 For information on |POL| concepts and service configuration, see
 `How it Works <http://integ-docs-aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html>`_ in
-the Amazon Polly Developer Guide.
+the *Amazon Polly Developer Guide*.
 
 Implement Text to Speech Conversion with Amazon Polly
 =====================================================
 
 See information on |POL| implementation for Android apps in the
-`Application Examples <http://docs.aws.amazon.com/polly/latest/dg/examples-for-using-polly.html>`_ section of the |POL-dg|.
+`Application Examples <http://docs.aws.amazon.com/polly/latest/dg/examples-for-using-polly.html>`_ section of the *Polly Developer Guide*.

@@ -40,7 +40,7 @@ language interface for voice and text chat. No deep knowledge of either AWS serv
 is needed.
 
 For information on |LEX| concepts and service configuration, see
-:LEX-dg:`How it Works <how-it-works>` in the |LEX-dg|.
+:LEX-dg:`How it Works <how-it-works>` in the *Lex Developer Guide*.
 
 For instructions on how to integrate |LEX| into your Android application, see
 :doc:`getting-started-understand-natural-language-lex`.

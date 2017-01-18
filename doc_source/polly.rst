@@ -22,7 +22,7 @@ Amazon Polly is a service that turns text into lifelike speech, making it easy t
 
 Using the following resources, you can integrate Amazon Polly with your Android app to add text to speech transformation. No deep knowledge of either AWS services or natural language computing is needed.
 
-For information on Amazon Polly concepts and service configuration, see `How it Works <http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html>`_ in the Amazon Polly Developer Guide.
+For information on Amazon Polly concepts and service configuration, see `How it Works <http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html>`_ in the *Amazon Polly Developer Guide*.
 
 For instructions on how to integrate Amazon Polly into your Android application, see `Adding Text to Speech Conversion to your App <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/getting-text-to-speech-polly.html>`_.
 
