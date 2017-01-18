@@ -68,7 +68,7 @@ Set IAM Permissions for |LEX|
 --------------------------------------------
 
 To use |LEX| in an application, create a role and attach policies as described in Step 1 of
-`Getting Started <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-prep.html>`_ in the |LEX-dg|.
+`Getting Started <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-prep.html>`_ in the *Lex Developer Guide*.
 
 To learn more about IAM policies, see `Using IAM <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_Introduction.html>`_.
 
@@ -76,9 +76,9 @@ Configure a Bot
 ---------------
 
 To setup interaction between your mobile app and |LEX|, use the |LEX| console to configure a bot that fulfills
-your requirements. To learn more see |LEX-dg|_.
+your requirements. To learn more see *Lex Developer Guide*_.
 For a quickstart, see Step 2 of `Getting Started <http://docs.aws.amazon.com/lex/latest/dg/gs-bp-prep.html>`_ in the
-|LEX-dg|.
+*Lex Developer Guide*.
 
 |LEX| also supports model building APIs, which allow creation of bots, intents, and slots at runtime. This SDK does not
 currently offer additional support for interacting with |LEX| model building APIs.
