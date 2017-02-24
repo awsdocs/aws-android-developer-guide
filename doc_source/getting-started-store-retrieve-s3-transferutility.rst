@@ -79,7 +79,7 @@ For more information on granting access to S3, see `Granting Access to an Amazon
 Declare the Service in AndroidManifest.xml
 ------------------------------------------
 
-Add the following declaration to your :file:`AndroidManifest.xml`:
+Add the following declaration to the :code:`<application \>` element of your :file:`AndroidManifest.xml`:
 
 .. code-block:: xml
 
