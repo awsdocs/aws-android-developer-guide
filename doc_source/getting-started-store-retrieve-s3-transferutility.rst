@@ -81,12 +81,16 @@ Declare the Service in AndroidManifest.xml
 
 Add the following declaration to the :code:`<application \>` element of your :file:`AndroidManifest.xml`:
 
+
 .. code-block:: xml
 
-    <service
-        android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
-        android:enabled="true" />
+    <application ...>
 
+        <service
+            android:name="com.amazonaws.mobileconnectors.s3.transferutility.TransferService"
+            android:enabled="true" />
+
+    </application>
 
 Initialize the S3 TransferUtility
 =================================
