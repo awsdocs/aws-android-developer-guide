@@ -28,7 +28,10 @@ Before you can use the |sdk-android|, you will need the following:
 - Android 2.3.3 (API Level 10) or higher (for more information about the Android platform, see
   `Android Developers <http://developer.android.com/index.html>`_)
 
-- `Android Studio <https://developer.android.com/sdk/index.html>`_ or `Android Development Tools for
+
+- `Android Studio <https://developer.android.com/sdk/index.html>`_ 
+We have to remove below lines. Eclipse is not supporting it from June 2015. 
+or `Android Development Tools for
   Eclipse <http://developer.android.com/sdk/eclipse-adt.html>`_
 
 After completing the prerequisites, you will need to do the following to get started:
@@ -56,7 +59,7 @@ that your project will use, as shown below.
         compile 'com.amazonaws:aws-android-sdk-s3:2.2.+'
         compile 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
     }
-
+Note: Android Studio recommended to avoid + in the version number for gradle dependency. It will lead to unpredictable and unrepeatable builds. 
 A full list of dependencies are listed below.
 
 ====================================== =======================================
