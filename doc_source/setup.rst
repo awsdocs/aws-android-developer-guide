@@ -52,9 +52,9 @@ that your project will use, as shown below.
 .. code-block:: groovy
 
     dependencies {
-        compile 'com.amazonaws:aws-android-sdk-core:2.2.+'
-        compile 'com.amazonaws:aws-android-sdk-s3:2.2.+'
-        compile 'com.amazonaws:aws-android-sdk-ddb:2.2.+'
+        compile 'com.amazonaws:aws-android-sdk-core:2.6.+'
+        compile 'com.amazonaws:aws-android-sdk-s3:2.6.+'
+        compile 'com.amazonaws:aws-android-sdk-ddb:2.6.+'
     }
 
 A full list of dependencies are listed below.
@@ -62,30 +62,30 @@ A full list of dependencies are listed below.
 ====================================== =======================================
 Dependency                             Build.gradle Value
 ====================================== =======================================
-AWS Mobile SDK core                    com.amazonaws:aws-android-sdk-core:2.2.+
-Amazon API Gateway                     com.amazonaws:aws-android-sdk-apigateway-core:2.2.+
-Auto Scaling                           com.amazonaws:aws-android-sdk-autoscaling:2.2.+
-Amazon Cloud Watch                     com.amazonaws:aws-android-sdk-cloudwatch:2.2.+
-Amazon Cognito Sync                    com.amazonaws:aws-android-sdk-cognito:2.2.+
-Amazon Cognito Identity Provider       com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.2.+
-Amazon DynamoDB                        com.amazonaws:aws-android-sdk-ddb:2.2.+
-Amazon DynamoDB Object Mapper          com.amazonaws:aws-android-sdk-ddb-mapper:2.2.+
-Amazon EC2                             com.amazonaws:aws-android-sdk-ec2:2.2.+
-Elastic Load Balancing                 com.amazonaws:aws-android-sdk-elb:2.2.+
-AWS IoT                                com.amazonaws:aws-android-sdk-iot:2.2.+
-Amazon Kinesis                         com.amazonaws:aws-android-sdk-kinesis:2.2.+
-AWS Key Management Service (KMS)       com.amazonaws:aws-android-sdk-kms:2.2.+
-Amazon Lex                             com.amazonaws:aws-android-sdk-lex:2.3.4@aar
-AWS Lambda                             com.amazonaws:aws-android-sdk-lambda:2.2.+
-Amazon Machine Learning                com.amazonaws:aws-android-sdk-machinelearning:2.2.+
-Amazon Mobile Analytics                com.amazonaws:aws-android-sdk-mobileanalytics:2.2.+
-Amazon Pinpoint                        com.amazonaws:aws-android-sdk-pinpoint:2.3.5
-Amazon Polly                           com.amazonaws:aws-android-sdk-polly:2.3.4
-Amazon S3                              com.amazonaws:aws-android-sdk-s3:2.2.+
-Amazon Simple DB                       com.amazonaws:aws-android-sdk-sdb:2.2.+
-Amazon SES                             com.amazonaws:aws-android-sdk-ses:2.2.+
-Amazon SNS                             com.amazonaws:aws-android-sdk-sns:2.2.+
-Amazon SQS                             com.amazonaws:aws-android-sdk-sqs:2.2.+
+AWS Mobile SDK core                    com.amazonaws:aws-android-sdk-core:2.6.+
+Amazon API Gateway                     com.amazonaws:aws-android-sdk-apigateway-core:2.6.+
+Auto Scaling                           com.amazonaws:aws-android-sdk-autoscaling:2.6.+
+Amazon Cloud Watch                     com.amazonaws:aws-android-sdk-cloudwatch:2.6.+
+Amazon Cognito Sync                    com.amazonaws:aws-android-sdk-cognito:2.6.+
+Amazon Cognito Identity Provider       com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.+
+Amazon DynamoDB                        com.amazonaws:aws-android-sdk-ddb:2.6.+
+Amazon DynamoDB Object Mapper          com.amazonaws:aws-android-sdk-ddb-mapper:2.6.+
+Amazon EC2                             com.amazonaws:aws-android-sdk-ec2:2.6.+
+Elastic Load Balancing                 com.amazonaws:aws-android-sdk-elb:2.6.+
+AWS IoT                                com.amazonaws:aws-android-sdk-iot:2.6.+
+Amazon Kinesis                         com.amazonaws:aws-android-sdk-kinesis:2.6.+
+AWS Key Management Service (KMS)       com.amazonaws:aws-android-sdk-kms:2.6.+
+Amazon Lex                             com.amazonaws:aws-android-sdk-lex:2.6.+@aar
+AWS Lambda                             com.amazonaws:aws-android-sdk-lambda:2.6.+
+Amazon Machine Learning                com.amazonaws:aws-android-sdk-machinelearning:2.6.+
+Amazon Mobile Analytics                com.amazonaws:aws-android-sdk-mobileanalytics:2.6.+
+Amazon Pinpoint                        com.amazonaws:aws-android-sdk-pinpoint:2.6.+
+Amazon Polly                           com.amazonaws:aws-android-sdk-polly:2.6.+
+Amazon S3                              com.amazonaws:aws-android-sdk-s3:2.6.+
+Amazon Simple DB                       com.amazonaws:aws-android-sdk-sdb:2.6.+
+Amazon SES                             com.amazonaws:aws-android-sdk-ses:2.6.+
+Amazon SNS                             com.amazonaws:aws-android-sdk-sns:2.6.+
+Amazon SQS                             com.amazonaws:aws-android-sdk-sqs:2.6.+
 ====================================== =======================================
 
 Option 2: Import the JAR Files
