@@ -85,7 +85,7 @@ To set IAM Permissions for AWS Lambda:
              "lambda:invokefunction"
          ],
          "Resource": [
-            ”arn:aws:lambda:us-west-2:012345678901:function:yourFunctionName”,
+            "arn:aws:lambda:us-west-2:012345678901:function:yourFunctionName"
          ]
       }]
    }
