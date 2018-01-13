@@ -14,11 +14,6 @@ AWS Mobile SDK for Android
 
 This content has moved to the `AWS Mobile Developer Guide <https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html>`_.
 
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   Welcome
+The GitHub repository has moved to `https://github.com/awsdocs/aws-mobile-developer-guide/ <https://github.com/awsdocs/aws-mobile-developer-guide/>`_.
 
 
